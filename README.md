@@ -40,19 +40,27 @@ import re
 import sys
 
 # Usage Instructions
-def usage():
+
+
+...
+
+`def usage():
     print("\n")
     print(f"Strip URL Usage (with pcap file): python3 {sys.argv[0]} --inputpcap /path/to/pcap --stripurl /path/to/file")
     print(f"Strip URL Usage (sniff mode): python3 {sys.argv[0]} --iface <interface> --stripurl /path/to/file")
-    print("\n")
-    print(f"Strip TXT Usage: python3 {sys.argv[0]} --inputpcap /path/to/pcap --striptxt /path/to/folder")
+    print("\n")`
+ 
+   `print(f"Strip TXT Usage: python3 {sys.argv[0]} --inputpcap /path/to/pcap --striptxt /path/to/folder")
     print(f"Strip TXT Usage: python3 {sys.argv[0]} --iface <interface> --striptxt /path/to/folder")
     print("\n")
     print(f"Strip Image Usage: python3 {sys.argv[0]} --inputpcap /path/to/pcap --stripimg /path/to/folder")
     print("\n")
-    sys.exit()
+    sys.exit()`
+...
 
 ## Given the payload, try to extract the payload and write to file
+<br>
+</br>
 def extract_payload(http_headers, payload, output_path):
     payload_type = http_headers["Content-Type"].split("/")[1].split(";")[0]
     try:
@@ -76,6 +84,9 @@ def extract_payload(http_headers, payload, output_path):
 
 ## Given pcap and output directory, try to extract urls from HTTP GET Requests
 #Write URLs to file
+
+<br>
+
 def stripurl_pcap(pcap, output_path):
     a = rdpcap(pcap)
     sessions = a.sessions()
@@ -94,9 +105,14 @@ def stripurl_pcap(pcap, output_path):
                 pass
     fd.close()
     sys.exit(0)
-
+</br>
 ## Given pcap and output directory, try to extract images from HTTP Responses
 #Write images to output directory
+
+
+<br>
+</br>
+
 def stripimg_pcap(pcap, output_path):
     a = rdpcap(pcap)
     sessions = a.sessions()
@@ -132,6 +148,7 @@ def stripimg_pcap(pcap, output_path):
 
 ### Given pcap and output directory, try to extract text payloads from HTTP Responses
 #Write text payloads to output directory
+
 def striptxt_pcap(pcap, output_path):
     a = rdpcap(pcap)
     sessions = a.sessions()
