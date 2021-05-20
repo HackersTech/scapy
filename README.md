@@ -39,7 +39,7 @@ import uuid
 import re
 import sys
 
-#Usage Instructions
+# Usage Instructions
 def usage():
     print("\n")
     print(f"Strip URL Usage (with pcap file): python3 {sys.argv[0]} --inputpcap /path/to/pcap --stripurl /path/to/file")
@@ -52,7 +52,7 @@ def usage():
     print("\n")
     sys.exit()
 
-#Given the payload, try to extract the payload and write to file
+## Given the payload, try to extract the payload and write to file
 def extract_payload(http_headers, payload, output_path):
     payload_type = http_headers["Content-Type"].split("/")[1].split(";")[0]
     try:
@@ -74,7 +74,7 @@ def extract_payload(http_headers, payload, output_path):
     fd.write(file)
     fd.close()
 
-#Given pcap and output directory, try to extract urls from HTTP GET Requests
+## Given pcap and output directory, try to extract urls from HTTP GET Requests
 #Write URLs to file
 def stripurl_pcap(pcap, output_path):
     a = rdpcap(pcap)
@@ -95,7 +95,7 @@ def stripurl_pcap(pcap, output_path):
     fd.close()
     sys.exit(0)
 
-#Given pcap and output directory, try to extract images from HTTP Responses
+## Given pcap and output directory, try to extract images from HTTP Responses
 #Write images to output directory
 def stripimg_pcap(pcap, output_path):
     a = rdpcap(pcap)
@@ -130,7 +130,7 @@ def stripimg_pcap(pcap, output_path):
                 pass
     sys.exit(0)
 
-#Given pcap and output directory, try to extract text payloads from HTTP Responses
+### Given pcap and output directory, try to extract text payloads from HTTP Responses
 #Write text payloads to output directory
 def striptxt_pcap(pcap, output_path):
     a = rdpcap(pcap)
@@ -160,7 +160,7 @@ def striptxt_pcap(pcap, output_path):
                 pass
     sys.exit(0)
 
-#Given an interface to sniff, try to extract urls on the fly and write to file
+### Given an interface to sniff, try to extract urls on the fly and write to file
 def stripurl_sniff(iface, output_path):
 
     def stripurl_packet(packet):
@@ -185,7 +185,7 @@ def stripurl_sniff(iface, output_path):
         fd.close()
         sys.exit(0)
 
-#Given an interface to sniff, try to extract text payloads on the fly and write to file
+### Given an interface to sniff, try to extract text payloads on the fly and write to file
 def striptxt_sniff(iface, output_path):
 
     def striptxt_packet(packet):
@@ -218,7 +218,7 @@ def striptxt_sniff(iface, output_path):
         print(f"[*] Exiting")
         sys.exit(0)
 
-#Check cmd line arguments
+### check cmd line arguments
 def start_script(arguments):
     if len(arguments) == 5:
         if arguments[1] == "--inputpcap" and arguments[3] == "--stripurl":
