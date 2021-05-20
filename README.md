@@ -5,7 +5,7 @@ This is scapy tool i hope you know how to work with it
 
 
 # How to Use
-- **git clone
+- **git clone https://github.com/Hckers-Tech/scapy**
 - >cd scapy
 - >python3 scapy.py
 
