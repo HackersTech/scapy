@@ -32,7 +32,7 @@ scapy/scapy.py
 Hckers-Tech Scapy
  1 contributor
 207 lines (190 sloc)  8.67 KB
-
+```
 from scapy.all import *
 import zlib
 import uuid
@@ -41,8 +41,6 @@ import sys
 
 # Usage Instructions
 
-
-...
 
 `def usage():
     print("\n")
@@ -253,9 +251,11 @@ def start_script(arguments):
     else:
         usage()
 
-
 start_script(sys.argv)
-© 2021 GitHub, Inc.
+```
+
+
+- © 2021 GitHub, Inc.
 
 Contact GitHub
 
